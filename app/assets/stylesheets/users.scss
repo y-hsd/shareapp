@@ -1,0 +1,111 @@
+*{
+    box-sizing:border-box;
+  }
+
+/*ルーム詳細と予約入力画面*/
+.user-container,.room-container, .reservation-container{
+    display: flex;
+    width: 100%;
+    margin:0;
+    flex: 1;
+}
+
+.active{
+    border-right: 5px skyblue solid;
+}
+
+.active a{
+    color: steelblue;
+}
+
+.tabs{
+    margin-right:15px;
+}
+
+.tabs li{
+    padding:15px 10px;
+    text-align: end;
+}
+
+
+.user-view{
+    width: 100%;
+    min-height: 100vh;
+    background-color:#F6F8F9;
+    background-clip:border-box;
+    border-left: 2px #555555 solid;
+}
+
+.form-view{
+    display: flex;
+    justify-content:space-around;
+}
+
+.field input,.field textarea{
+    width: 100%;
+    padding:10px;
+}
+
+.view-box{
+    padding: 50px;
+    background-color: white;
+    background-clip: padding-box;
+}
+
+.view-content{
+    text-align: center;
+    align-items: center;
+    margin:10px;
+}
+
+.account-delete{
+    margin:0 auto;
+}
+
+
+.room-details{
+    display:flex;
+}
+
+.view-profile{
+    display: flex;
+    justify-content: center;
+}
+
+.introduction {
+    position: relative;
+    margin-top: 30px;
+    padding: 5px;
+    width: 360px;
+    color: #555555;
+    background-color: #fff;
+    border: 2px solid #555555;
+    box-shadow: 2px 2px 1px #ccc;
+}
+
+.introduction-title{
+    position: absolute;
+    width:80px;
+    height: 20px;
+    padding: 2px;
+    margin: 0 40px 0 0;
+    left: 5px;
+    top: -10px;
+    font-size: 12px;
+    background-color: #fff;
+    color:#555555;
+}
+
+.introduction p {
+    padding: 15px 20px;
+    margin: 0;
+}
+
+.edit{
+    text-align: center;
+    margin-top:30px;
+}
+
+.edit-tabs{
+    min-width:200px;
+}

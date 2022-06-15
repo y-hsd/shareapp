@@ -1,0 +1,36 @@
+<div class="container">
+<p class="notice"><%= notice %></p>
+    <div class="top-main">
+        <div class="top-box">
+            <h1>ShareAppで<br>まだ体験したことのない旅をしよう</h1>
+             <%= form_with(url: rooms_path, method: :get ) do |f| %>
+                <%= f.label :address, "エリア" %>
+                <%= f.text_field :address, placeholder: "東京", class: "searchbox-top"  %>
+                <div class="submitbtn">
+                    <%= f.submit  "探す" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+    <div class="top-about">
+        <h2>おすすめのエリア</h2>
+        <div class="area-panel">
+            <div class="area">
+                <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg", class:"area-image"), rooms_path(address:"東京") %>
+                <span>東京</span>
+            </div>
+            <div class="area">
+                <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg", class:"area-image"), rooms_path(address:"大阪") %>
+                <span>大阪</span>
+            </div>
+            <div class="area">
+                <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg", class:"area-image"), rooms_path(address:"京都") %>
+                <span>京都</span>
+            </div>
+            <div class="area">
+                <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg", class:"area-image"), rooms_path(address:"札幌") %>
+                <span>札幌</span>
+            </div>
+        </div>    
+    </div>

@@ -1,0 +1,46 @@
+<div class="user-container">
+
+    <div class="user-tabs">
+        <div class="tabs">
+        <ul>
+            <li class="active"><%= link_to("アカウント", users_account_path) %></li>
+            <li><%= link_to("マイルーム", users_rooms_path) %></li>
+            <li><%= link_to("予約済みルーム", reservations_path) %></li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="user-view">
+      <% if flash[:notice] %>
+        <p class="notice"><%= flash[:notice] %></p>
+      <% end %>
+      <div class="view-box">
+        <div class="view-account">
+            <div class="view-content user-icon">
+                <% if @user.avatar.attached? %>
+                    <%= image_tag @user.avatar, class:"avatar-detail" %>
+                <% else %>
+                    <img class="avatar-detail" src="https://1.bp.blogspot.com/-K04KC6yK6Uc/X7zMjTPrDPI/AAAAAAABcdI/rg_FQJ194SYzrFROZ5mywsVLKZArAd8SwCNcBGAsYHQ/s726/shibasuberi_danbo-ru_girl.png"></td>
+                <% end %>
+            </div>
+            <div class="view-content">
+                <%= @user.name %>
+            </div>
+            <div class="view-content">
+                <%= @user.email %>
+            </div>
+        </div>
+        <div class="view-profile">
+            <div class="introduction">
+                <span class="introduction-title">プロフィール</span>
+                <p><%= @user.introduction %></p>
+            </div>
+        </div>
+        <div class="edit">
+            <%= link_to "編集", edit_user_registration_path(@user) %>
+        </div>
+      </div>
+    </div>
+
+
+</div>

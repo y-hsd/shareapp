@@ -1,0 +1,46 @@
+<div class="room-container">
+    <div class="user-tabs">
+      <div class="tabs">
+        <ul>
+            <li><%= link_to("アカウント", users_account_path) %></li>
+            <li class="active"><%= link_to("マイルーム", users_rooms_path) %></li>
+            <li><%= link_to("予約済みルーム", reservations_path) %></li>
+        </ul>
+      </div>
+    </div>
+  <div class="user-view">
+    <div class="index-header">
+      <h1>マイルーム一覧</h1>
+      <%= link_to '新規登録', new_room_path %>
+    </div>
+    <div class="room-index">
+      <table>
+        <thead>
+          <tr>
+            <th>ルーム写真</th>
+            <th>ルーム名</th>
+            <th>場所</th>
+            <th>ルーム紹介</th>
+            <th>料金</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @user.rooms.each do |room| %>
+          <tr>
+            <% if room.image.attached? %>
+              <td><%= image_tag room.image.variant( resize: "300" ) %></td>
+            <% else %>
+              <td><img class="image" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg"></td>
+            <% end %>
+            <td><%= link_to room.name, room , class:"show-room"%></td>
+            <td><%= room.address %></td>
+            <td><%= room.introduction %></td>
+            <td>¥<%= room.price %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="form-view">
+    <% if flash[:notice] %>
+      <p class="notice"><%= flash[:notice] %></p>
+    <% end %>
+  <div class="form-box">
+   <div class="contents">
+      <p>予約確定日時</p>
+      <%= @reservation.created_at.to_s %>
+   </div>
+   <div class="contents">
+   <p>開始日</p>
+    <%= @reservation.start_date.to_s(:datetime_jp) %>
+   </div>
+   <div class="contents">
+      <p>終了日</p>
+      <%= @reservation.end_date.to_s(:datetime_jp) %>
+   </div>
+   <div class="contents">
+      <p>滞在日数</p>
+      <%= @reservation.total_days %>日間
+    </div>
+    <div class="contents">
+      <p>合計金額</p>
+      ¥<%= @reservation.total_price %>
+    </div>
+    <br /><div style="text-align: right;"><%= link_to "戻る", :back %></div>
+  </div>
+</div>

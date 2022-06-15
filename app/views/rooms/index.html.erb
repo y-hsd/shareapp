@@ -1,0 +1,33 @@
+<p class="notice"><%= notice %></p>
+<h1>検索結果：<%= @rooms.count %>件</h1>
+<div class="room-container">
+<div class="room-index">
+<table>
+  <thead>
+    <tr>
+      <th>ルーム画像</th>
+      <th>ルーム名</th>
+      <th>場所</th>
+      <th>ルーム紹介</th>
+      <th>合計料金</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rooms.each do |room| %>
+      <tr>
+        <% if room.image.attached? %>
+          <td><%= image_tag room.image.variant( resize: "300" ) %></td>
+        <% else %>
+          <td><img class="image" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg"></td>
+        <% end %>
+        <td><%= link_to room.name, room , class:"show-room"%></td>
+        <td><%= room.address %></td>
+        <td><%= room.introduction %></td>
+        <td>¥<%= room.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>

@@ -1,0 +1,50 @@
+<div class="form-view">
+      <div class="form-box">
+<%= form_with(model: @room) do |form| %>
+  <% if room.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(room.errors.count, "件") %> のエラーが発生したため予約できません。:</h2>
+
+      <ul>
+        <% room.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, "ルーム名" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address,"所在地" %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :introduction, "紹介文" %>
+    <%= form.text_area :introduction %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price, "金額" %>
+    <%= form.number_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image, "ルーム写真" %>
+    <%= form.file_field :image %>
+  </div>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+  <div class="actions submitbtn">
+    <%= form.submit %>
+  </div>
+  <div style="text-align: right;"><%= link_to '戻る', rooms_path %></div>
+<% end %>
+</div>
+</div>
+</div>

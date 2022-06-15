@@ -1,0 +1,272 @@
+*{
+    box-sizing:border-box;
+  }
+  
+/*共通ページで使っているもの*/
+body{
+    margin:0;
+    min-height: 100vh;
+    width: 100vw;
+    font-family: verdana, arial, helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+header{
+    height:90px;
+    padding:5px 30px;
+    background-color: black;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+footer{
+    width: 100%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 35px 0;
+}
+
+.header-left,.header-right{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.logo{
+    color:aliceblue;
+    margin:20px;
+    font-family: cursive;
+    font-size: 30px;
+    letter-spacing: 1px
+}
+
+.area-search, .keyword-search{
+    display:inline-block;
+    position: relative;
+}
+
+.area-search input, .keyword-search input{
+    padding:10px 10px 10px 30px;
+}
+
+.fa-solid {
+    position: absolute;
+    top:12px;
+    left:12px;
+    font-weight: 900;
+    font-size: 18px;
+    color: black;
+    font-family: Font Awesome\ 6 Free;
+}
+
+.signin a,.user-name a{
+    color: aliceblue;
+    margin: 20px;
+    padding:5px;
+    font-size: 18px;
+}
+
+.signin:hover a,.user-name :hover a{
+    font-weight: bold;
+}
+
+.avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px #c1ced7;
+    margin: 10px;
+    object-fit: cover;
+  }
+
+  .avatar-detail {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px #c1ced7;
+    margin: 10px;
+    object-fit: cover;
+  }
+
+
+#nav-menus{
+    display:none;
+    position:absolute;
+    top: 90px;
+    right: 10px;
+    padding: 10px;
+    background:white;
+    color: black;
+    z-index: 100;
+}
+
+#nav-menus a:hover{
+    background-color: white;
+    font-weight: bold;
+    color:steelblue;
+}
+
+.nav-item{
+    display: block;
+}
+
+.nav-link{
+    display: inline-block;
+    padding:5px 10px;
+}
+
+li{
+    list-style: none;
+    line-height: 30px;
+    font-size: 15px;
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
+/*Topページで使用しているもの*/
+.container{
+    background-image: url("	https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg");
+    background-size: cover;
+    z-index: 0;
+    width: 100%;
+    margin:0;
+}
+
+.top-main{
+    display:flex;
+    align-items: center;
+}
+
+.top-about{
+    width:100%;
+    align-items: center;
+    position:relative;
+}
+
+.top-box{
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 20px 50px;
+    margin:50px;
+    background-color: rgba(255,255,255,0.7)
+}
+
+#form-top{
+    display:block;
+    margin-bottom:20px;
+}
+
+.searchbox-top{
+    display:block;
+    height:50px;
+    width: 100%;
+    padding:10px;
+    margin-bottom:20px;
+    border:2px dimgrey solid;
+    background:#eee;
+}
+
+input{
+    background-clip: border-box;
+    border-radius: 3px;
+    transition: 0.3s;
+    width:100%;
+    padding:8px;
+}
+
+.header-search input{
+    display: none;
+}
+
+.submitbtn input{
+    background:steelblue;
+    background-clip: border-box;
+    border: none;
+    color:#fff;
+    font-weight:bold;
+    font-size:16px;
+    display: block;
+    margin-top:5px;
+}
+
+.submitbtn:hover input{
+    background:skyblue;
+    color:#fff;
+}
+
+h1,h2{
+    font-weight: 500;
+}
+
+h1{
+    font-size: 25px;
+    display: inline-block;
+    margin-left: 20px;
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 0;
+}
+
+a{
+    text-decoration: none;
+    color:black;
+}
+
+a:hover{
+    font-weight: bold;
+    color: cornflowerblue;
+    background-color: none;
+}
+
+.area-panel{
+    width:100%;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+}
+
+.area{
+    margin:10px;
+    width:20%;
+    position:relative;
+}
+
+.area-image{
+    width: 100%;
+    height:360px;
+    object-fit: cover;
+}
+
+span{
+    position:absolute;
+    bottom:50px;
+    left:0;
+    right:0;
+    color:white;
+    font-weight:bold;
+    z-index:1;
+    margin:auto;
+    text-align: center;
+    font-size: 24px;
+}
+
+.notice{
+    display:block;
+    text-align: center;
+    margin-bottom: 0;
+    padding:5px;
+    z-index:10;
+}

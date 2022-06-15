@@ -1,0 +1,56 @@
+/*登録済みルーム一覧*/
+*{
+    box-sizing:border-box;
+}
+
+.room-index{
+    margin:0;
+}
+
+table {
+    border-collapse:  collapse;
+    width: 100%;
+}
+
+.index-header{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    padding:0 20px;
+    width: 100%;
+}
+
+th,tr{
+    padding:10px;
+    border-top:1px solid #eaedef;
+    border-bottom:1px solid #eaedef;
+    text-align: center;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+td{
+    padding:20px;
+}
+
+.show-room {
+    font-size: 18px;
+    font-weight: bold;
+    color:steelblue;
+    border-bottom: 2px steelblue solid;
+}
+
+
+tr:nth-child(even) {
+    background-color:#eaedef;
+}
+
+.image{
+    width:250px;
+    height:200px;
+}
+
+.hostmenu a{
+    display:inline-block;
+    margin:5px;
+}
