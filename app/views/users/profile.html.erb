@@ -1,0 +1,49 @@
+<div class="user-container">
+
+    <div class="edit-tabs">
+        <div class="tabs">
+          <ul>
+            <li><%= link_to("アカウント編集", edit_user_registration_path(@user)) %></li>
+            <li class="active"><%= link_to("プロフィール編集", users_profile_path(@user)) %></li>
+          </ul>
+        </div>
+    </div>
+    
+  <div class="user-view">
+    <p class="notice"><%= notice %></p>
+        <h2>プロフィール編集</h2>
+
+    <div class="form-view">
+      <div class="form-box">
+        <%= form_with model: @user do |f| %>
+          <% if @error_messages %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@error_messages.count, "error") %> prohibited this reservation from being saved:</h2>
+              <ul>
+                <% @error_messages.each do |error| %>
+                  <li><%= error %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+        <div class="field">
+          <%= f.label :image_name,"プロフィール画像" %>
+          <%= f.file_field :image_name %>
+        </div>
+
+        <div class="field">
+          <%= f.label :introduction,"自己紹介" %>
+          <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %>
+        </div>
+
+        <div class="submitbtn">
+          <%= f.submit "更新" %>
+        </div>
+      <% end %>
+
+      <br /><div style="text-align: right;"><%= link_to "戻る", :back %></div>
+
+    </div>
+  </div>
+</div>

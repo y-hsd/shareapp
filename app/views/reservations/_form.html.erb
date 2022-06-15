@@ -1,0 +1,24 @@
+<%= render "error", obj: @reservation %>
+<%= form_with model: @reservation, url: new_room_reservation_path(@room), method: :get do |f| %>
+  <div class="field">
+    <%= f.label :start_date, "チェックイン" %>
+    <%= f.date_field :start_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date, "チェックアウト" %>
+    <%= f.date_field :end_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :guests, "宿泊人数" %>
+    <%= f.number_field :guests %>
+  </div>
+
+  <div class="actions submitbtn">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to '戻る', rooms_path(@room) %>
+<% end %>

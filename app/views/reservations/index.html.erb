@@ -1,0 +1,48 @@
+<div class="room-container">
+    <div class="user-tabs">
+      <div class="tabs">
+        <ul>
+            <li><%= link_to("アカウント", users_account_path) %></li>
+            <li><%= link_to("マイルーム", users_rooms_path) %></li>
+            <li class="active"><%= link_to("予約済みルーム", reservations_path) %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="user-view">
+        <div class="index-header">
+          <h1>予約済みルーム一覧</h1>
+          <%= link_to '新規登録', new_room_path %>
+        </div>
+      <div class="room-index">
+      <table>
+          <thead>
+            <tr>
+              <th>ルーム写真</th>
+              <th>ルーム名</th>
+              <th>チェックイン</th>
+              <th>チェックアウト</th>
+              <th>合計料金</th>
+              <th>予約詳細</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @reservations.each do |reservation| %>
+              <tr>
+                <% if reservation.room.image.attached? %>
+                  <td><%= image_tag reservation.room.image, size: '100x50', class:"image" %></td>
+                <% else %>
+                  <td><img class="image" src="https://1.bp.blogspot.com/-K04KC6yK6Uc/X7zMjTPrDPI/AAAAAAABcdI/rg_FQJ194SYzrFROZ5mywsVLKZArAd8SwCNcBGAsYHQ/s726/shibasuberi_danbo-ru_girl.png"></td>
+                <% end %>
+                <td><%= link_to reservation.room.name, room_path(reservation.room_id), class:"show-room" %></td>
+                <td><%= reservation.start_date.to_s(:datetime_jp)  %></td>
+                <td><%= reservation.end_date.to_s(:datetime_jp)  %></td>
+                <td><%= reservation.total_price %></td>
+                <td><%= link_to 'Show', room_reservation_path(reservation.room_id,reservation) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>

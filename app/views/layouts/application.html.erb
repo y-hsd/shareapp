@@ -2,15 +2,79 @@
 <html>
   <head>
     <title>ShareApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" integrity="sha384-/frq1SRXYH/bSyou/HUp/hib7RVN1TawQYja658FEOodR/FQBKVqT9Ol+Oz3Olq5" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="responsive.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   </head>
 
   <body>
-    <%= yield %>
+  
+    <header>
+      <div class="header-left">
+        <a class="logo" href="/">ShareApp</a>
+          <div>
+            <%= form_with(url: rooms_path, method: :get, local: true ) do |f| %>
+              <div class="area-search">
+                <%= f.text_field :address, placeholder: "エリア" %>
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div class="keyword-search">
+                <%= f.text_field :keyword, placeholder: "キーワード" %>
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+              <div class="header-search" ><%= f.submit %></div>
+            <% end %>
+          </div>
+      </div>
+
+      <div class="header-right">
+      <% if user_signed_in? %>
+        <p class="user-name"><%= link_to(current_user.name, users_account_path )%></p>
+        <nav class="nav-items" id="nav-dropdown">
+          <% if current_user.avatar.attached? %>
+            <%= image_tag current_user.avatar, class:"avatar" %>
+          <% else %>
+            <img class="avatar" src="https://1.bp.blogspot.com/-K04KC6yK6Uc/X7zMjTPrDPI/AAAAAAABcdI/rg_FQJ194SYzrFROZ5mywsVLKZArAd8SwCNcBGAsYHQ/s726/shibasuberi_danbo-ru_girl.png">
+          <% end %>
+            <ul id="nav-menus">
+                <li class="nav-item">
+                  <%= link_to 'ルーム登録', new_room_path, class: 'nav-link' %><br>
+                </li>
+                <li class="nav-item">
+                  <%= link_to '予約済みルーム', reservations_path, class: 'nav-link' %><br>
+                </li>
+                <li class="nav-item">
+                  <%= link_to '登録済みルーム', users_rooms_path, class: 'nav-link' %><br>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'アカウント', users_account_path, class: 'nav-link' %><br>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+                </li>
+              <% else %>
+                <li class="signin">
+                  <%= link_to "新規登録", new_user_registration_path %>
+                </li>
+                <li class="signin">
+                  <%= link_to "ログイン", new_user_session_path %>
+                </li>
+              <% end %>
+            </ul>
+        </nav>
+      </div>  
+    </header>
+
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <p>ShareAppInc</p>
+    </footer>
   </body>
 </html>
